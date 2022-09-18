@@ -1,0 +1,12 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /application05
+logging.level.org.springframework.cache: TRACE
+
+spring:
+  redis:
+    host: 192.168.1.13
+    port: 6379
+    password: null
+    database: 0

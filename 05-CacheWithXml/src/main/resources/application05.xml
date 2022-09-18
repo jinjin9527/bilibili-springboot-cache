@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <cache:annotation-driven />
+
+    <cache:advice id="cacheAdvice">
+        <cache:caching cache="persons">
+            <cache:cacheable method="find*" key-generator="myKeyGenerator"/>
+            <cache:cache-put method="update*" key-generator="myKeyGenerator" unless="#result == null"/>
+            <cache:cache-evict method="delete*" key-generator="myKeyGenerator"/>
+        </cache:caching>
+    </cache:advice>
+
+    <aop:config>
+<!--        <aop:advisor advice-ref="cacheAdvice" pointcut="execution(* com.sylinx.springbootcache.service.PersonService.*(..))"/>-->
+        <aop:advisor advice-ref="cacheAdvice" pointcut="execution(* com.sylinx.springbootcache.service.PersonService.*(..)) and args(java.lang.Integer)"/>
+    </aop:config>
+</beans>
