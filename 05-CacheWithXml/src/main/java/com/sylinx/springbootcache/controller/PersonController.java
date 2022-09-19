@@ -1,4 +1,4 @@
-package com.sylinx.springbootcache.person.controller;
+package com.sylinx.springbootcache.controller;
 
 import com.sylinx.springbootcache.entity.Person;
 import com.sylinx.springbootcache.service.PersonService;

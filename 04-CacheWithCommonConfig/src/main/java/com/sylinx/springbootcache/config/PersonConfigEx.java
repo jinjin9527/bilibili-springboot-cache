@@ -79,6 +79,7 @@ public class PersonConfigEx extends AbstractCachingConfiguration implements Cach
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     public CacheInterceptor cacheInterceptor(CacheOperationSource cacheOperationSource) {
+//        CacheInterceptor interceptor = new CacheInterceptor();
         CacheInterceptor interceptor = new MyCacheInterceptor();
         interceptor.configure(this.errorHandler, this.keyGenerator, this.cacheResolver, this.cacheManager);
         interceptor.setCacheOperationSource(cacheOperationSource);

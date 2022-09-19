@@ -34,6 +34,7 @@ public class MyCacheInterceptor extends CacheInterceptor implements MethodInterc
 //            throw th.getOriginal();
 //        }
         catch (Exception th) {
+            th.printStackTrace();
             System.out.println("cache interceptor exception ");
 //            th.printStackTrace();
             return aopAllianceInvoker.invoke();

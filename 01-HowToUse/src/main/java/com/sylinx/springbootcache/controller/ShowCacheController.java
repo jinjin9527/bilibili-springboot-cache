@@ -1,4 +1,4 @@
-package com.sylinx.springbootcache.person.controller;
+package com.sylinx.springbootcache.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

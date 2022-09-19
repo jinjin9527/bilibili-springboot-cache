@@ -28,8 +28,8 @@ public class PersonConfig {
         CacheManager cacheManager = RedisCacheManager.builder()
                 .withCacheConfiguration("persons", redisCacheConfiguration)
 //                .withCacheConfiguration("orders", redisCacheConfiguration)
-                .cacheWriter(RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory))
-//                .cacheWriter(myRedisCacheWriter(redisConnectionFactory, myLogicalService))
+//                .cacheWriter(RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory))
+                .cacheWriter(myRedisCacheWriter(redisConnectionFactory, myLogicalService))
                 .build();
         return cacheManager;
     }

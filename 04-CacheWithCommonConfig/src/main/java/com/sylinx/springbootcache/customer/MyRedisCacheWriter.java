@@ -31,7 +31,7 @@ public class MyRedisCacheWriter implements RedisCacheWriter {
     public byte[] get(String name, byte[] key) {
         String errorKey = new String(key);
         if(errorKey.contains("14")){
-            throw new RuntimeException("put exception");
+            throw new RuntimeException("get exception");
         }
         return this.defaultRedisCacheWriter.get(name, key);
     }
